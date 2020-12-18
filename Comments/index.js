@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 const commentsByPostId = {};
 app.get('/posts/:id/comments', (req, res) => {
-    return res.json( commentsByPostId[req.params.id] || [] );
+    return res.send( commentsByPostId[req.params.id] || [] );
 });
 
 app.post('/posts/:id/comments', (req, res) => {
@@ -23,7 +23,7 @@ app.post('/posts/:id/comments', (req, res) => {
 
     
 
-    return res.status(201).json(comments)
+    return res.send(comments)
 
 });
 
